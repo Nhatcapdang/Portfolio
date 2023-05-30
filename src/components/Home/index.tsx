@@ -23,6 +23,7 @@ import { Layout } from 'src/common';
 import { Ava3 } from 'public/asset/Photos';
 import { useStyles } from './styles';
 import AboutMe from './AboutMe';
+import Timeline from './Timeline';
 
 export default function Home() {
   const { classes } = useStyles();
@@ -106,6 +107,7 @@ export default function Home() {
           </Box>
         </Box>
         <AboutMe />
+        <Timeline />
       </Container>
     </Layout>
   );
