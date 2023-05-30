@@ -23,11 +23,13 @@ export const useStyles = createStyles(() => ({
     },
     '.about': {
       '.heading': {
+        fontWeight: 600,
         fontSize: 'var(--h3-font-size)',
         marginBottom: 'var(--mb-0-75)',
       },
       '.desc': {
         textAlign: 'justify',
+        fontSize: 'var(--h3-font-size)',
         paddingRight: '6rem',
         marginBottom: 'var(--mb-2)',
       },

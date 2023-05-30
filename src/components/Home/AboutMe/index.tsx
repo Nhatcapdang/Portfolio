@@ -17,7 +17,7 @@ export default function AboutMe() {
             <Image src={Ava} alt="avatar" />
           </Box>
           <Box className="about">
-            <Text className="heading">My intro</Text>
+            <Text className="heading">Hi, I&rsquo;m Kiet Nguyen, in HCM City </Text>
             <Text className="desc">
               web developer, with hight level experience in web design and development knowledge,
               producing quality work. I have a lot of experience in developing web applications
