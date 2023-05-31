@@ -24,6 +24,7 @@ import { Ava3 } from 'public/asset/Photos';
 import { useStyles } from './styles';
 import AboutMe from './AboutMe';
 import Timeline from './Timeline';
+import ContactMe from './ContactMe';
 
 export default function Home() {
   const { classes } = useStyles();
@@ -108,6 +109,7 @@ export default function Home() {
         </Box>
         <AboutMe />
         <Timeline />
+        <ContactMe />
       </Container>
     </Layout>
   );

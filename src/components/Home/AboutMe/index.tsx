@@ -10,7 +10,7 @@ export default function AboutMe() {
     <Box className={classes.aboutMeWrapper}>
       <Box>
         <Title data-heading="My Intro" className="title">
-          About me
+          About Me
         </Title>
         <Group grow spacing={100}>
           <Box className="avatar">

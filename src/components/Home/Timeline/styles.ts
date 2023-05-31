@@ -45,11 +45,19 @@ export const useStyles = createStyles(() => ({
         top: '50%',
         'ul.timeline-controls': {
           display: 'unset',
-          padding: '.5em .3em',
+          // padding: '.5em .3em',
+          background: 'unset',
+          li: {
+            padding: '0.3em 0',
+          },
           button: {
             width: '25px',
             height: '25px',
-            background: 'var(--skin-color)',
+            background: 'unset',
+            border: '1px solid var(--skin-color)',
+            '&:hover': {
+              transform: 'scale(1.3) rotate(90deg)',
+            },
           },
         },
       },
