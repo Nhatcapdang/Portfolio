@@ -51,51 +51,37 @@ export const useStyles = createStyles(() => ({
         },
       },
     },
+
     '.fromInput': {
       display: 'flex',
       flexDirection: 'column',
       gap: 35,
       '.mantine-TextInput-root:focus-within label': {
         top: '0%',
-        background: 'var(--box-color)',
+        letterSpacing: '.4em',
+        // background: 'var(--box-color)',
         fontSize: 'var(--normal-font-size)',
       },
-      // '.mantine-TextInput-root:valid-within label': {
-      // background: 'red',
-      // },
-      // .mantine-TextInput-root:focus label,.mantine-TextInput-root:not(:placeholder-shown).mantine-TextInput-root:not(:focus) label)
       '.mantine-TextInput-root': {
         position: 'relative',
         '.mantine-TextInput-input': {
-          border: '2px solid var(--text-color)',
+          border: 'none',
+          borderBottom: '2px solid var(--text-color)',
           background: 'transparent',
           padding: '.6rem 1.2rem',
           color: 'var(--text-color)',
           fontWeight: 600,
           fontSize: 'var(--normal-font-size)',
           letterSpacing: '.5px',
-          borderRadius: '.50rem',
+          borderRadius: 'unset',
           transition: '.3s',
           height: 'unset',
-          // position: 'relative',
-          // '&:valid ~ label': {
-          //   background: 'red',
-          // },
-          // '&:not(:placeholder-shown)': {
-          //   outline: '2px solid green',
-          // },
-          // '&:before': {
-          //   content: '"Message"',
-          //   position: 'absolute',
-          //   width: '100%',
-          //   height: '100%',
-          //   background: 'navy',
-          // },
         },
         label: {
+          textTransform: 'uppercase',
           position: 'absolute',
           top: '50%',
-          left: '1rem',
+          // left: '1rem',
           transform: 'translateY(-50%)',
           padding: '0px .4rem',
           color: 'var(--text-color)',
@@ -105,10 +91,19 @@ export const useStyles = createStyles(() => ({
           zIndex: 1,
           transition: '.5s',
         },
+        '&.input-not-empty': {
+          label: {
+            top: '0%',
+            letterSpacing: '.4em',
+            // background: 'var(--box-color)',
+            fontSize: 'var(--normal-font-size)',
+          },
+        },
       },
       '.mantine-Textarea-root:focus-within label': {
         top: '-10%',
-        background: 'var(--box-color)',
+        letterSpacing: '.4em',
+        // background: 'var(--box-color)',
         fontSize: 'var(--normal-font-size)',
       },
       '.mantine-Textarea-root': {
@@ -117,17 +112,18 @@ export const useStyles = createStyles(() => ({
           '.mantine-Textarea-input': {
             padding: '.8rem 1.2rem',
             minHeight: '140px',
-            borderRadius: '.50rem',
+            borderRadius: 'unset',
             resize: 'none',
             background: 'transparent',
-            border: '2px solid var(--text-color)',
             fontWeight: 600,
+            border: 'none',
+            borderBottom: '2px solid var(--text-color)',
           },
         },
         '.mantine-Textarea-label': {
           position: 'absolute',
           top: '1rem',
-          left: '1rem',
+          textTransform: 'uppercase',
           transform: 'translateY(0)',
           padding: '0px .4rem',
           color: 'var(--text-color)',
@@ -136,14 +132,23 @@ export const useStyles = createStyles(() => ({
           transition: '.3s',
           zIndex: 1,
         },
+        '&.input-not-empty': {
+          label: {
+            top: '-10%',
+            letterSpacing: '.4em',
+            // background: 'var(--box-color)',
+            fontSize: 'var(--normal-font-size)',
+          },
+        },
       },
       '.btnAboutMe': {
+        letterSpacing: '.5px',
+        textTransform: 'uppercase',
         padding: '0px 30px',
         maxWidth: 'max-content',
         height: '50px',
         color: 'var(--title-color)',
         fontWeight: 700,
-        letterSpacing: '1px',
         background: 'var(--skin-color)',
         border: '1px solid var(--skin-color)',
         '&:hover': {

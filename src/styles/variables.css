@@ -75,7 +75,6 @@ html {
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--skin-color);
-  border-radius: 10px;
 }
 body,
 button,

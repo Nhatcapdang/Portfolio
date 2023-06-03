@@ -1,9 +1,22 @@
 import { Box, Title, Text, ActionIcon, Button, Group, TextInput, Textarea } from '@mantine/core';
 import { IconDevicesPlus, IconCertificate, IconHeadset } from '@tabler/icons-react';
+import { useForm } from '@mantine/form';
 import { useStyles } from './styles';
 
 export default function ContactMe() {
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
+  const formContactMe = useForm({
+    initialValues: {
+      email: '',
+      phone: '',
+      name: '',
+      message: '',
+    },
+
+    validate: {
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
+    },
+  });
   return (
     <Box className={classes.contactMeWrapper}>
       <Title data-heading="Get in touch" className="title">
@@ -37,10 +50,26 @@ export default function ContactMe() {
           </Box>
         </Box>
         <Box className="fromInput">
-          <TextInput label="Your name" required placeholder=" " />
-          <TextInput label="Email" />
-          <TextInput label="Phone" />
-          <Textarea label="Message" />
+          <TextInput
+            className={cx([{ 'input-not-empty': formContactMe.values.name.length > 0 }])}
+            label="Your name"
+            {...formContactMe.getInputProps('name')}
+          />
+          <TextInput
+            className={cx([{ 'input-not-empty': formContactMe.values.email.length > 0 }])}
+            label="Email"
+            {...formContactMe.getInputProps('email')}
+          />
+          <TextInput
+            className={cx([{ 'input-not-empty': formContactMe.values.phone.length > 0 }])}
+            label="Phone"
+            {...formContactMe.getInputProps('phone')}
+          />
+          <Textarea
+            className={cx([{ 'input-not-empty': formContactMe.values.message.length > 0 }])}
+            label="Message"
+            {...formContactMe.getInputProps('message')}
+          />
           <Button className="btnAboutMe" variant="outline" leftIcon={<IconDevicesPlus />}>
             Contact Me
           </Button>
