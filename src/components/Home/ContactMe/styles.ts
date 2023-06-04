@@ -1,14 +1,15 @@
-import { createStyles } from '@mantine/core';
+import { createStyles } from '@mantine/core'
 
 export const useStyles = createStyles(() => ({
   contactMeWrapper: {
     height: '100vh',
+    // position: 'relative',
     padding: 50,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    background: '#131313',
+    // background: '#131313',
     '.title': {
       textAlign: 'center',
       marginBottom: 60,
@@ -20,6 +21,23 @@ export const useStyles = createStyles(() => ({
         fontWeight: 600,
         color: 'var(--skin-color)',
       },
+    },
+    '.earthCanvasWrapper': {
+      // position: 'absolute',
+      // zIndex: 99,
+      height: '100%',
+      width: '100%',
+      // left: '0',
+      // '@media (max-width: 1550px)': {
+      //   height: '130%',
+      //   width: '130%',
+      // },
+      // '@media (max-width: 1200px)': {
+      //   height: '90%',
+      // },
+      // '@media (max-width: 992px)': {
+      //   height: '100%',
+      // },
     },
     '.about': {
       '.mantine-ActionIcon-root': {
@@ -157,4 +175,4 @@ export const useStyles = createStyles(() => ({
       },
     },
   },
-}));
+}))

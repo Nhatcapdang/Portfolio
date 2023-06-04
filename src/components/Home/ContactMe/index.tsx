@@ -1,19 +1,14 @@
 import {
   Box,
   Title,
-  Text,
-  ActionIcon,
   Button,
-  Group,
   TextInput,
   Textarea,
+  SimpleGrid,
 } from '@mantine/core'
-import {
-  IconDevicesPlus,
-  IconCertificate,
-  IconHeadset,
-} from '@tabler/icons-react'
+import { IconDevicesPlus } from '@tabler/icons-react'
 import { useForm } from '@mantine/form'
+import EarthCanvas from 'src/components/canvas/Earth'
 import { useStyles } from './styles'
 
 export default function ContactMe() {
@@ -35,31 +30,15 @@ export default function ContactMe() {
       <Title data-heading="Get in touch" className="title">
         Contact me
       </Title>
-      <Group grow spacing={100} w="100%">
-        <Box className="about">
-          <Box className="about_description">
-            <Box className="boxContent">
-              <ActionIcon size={30} variant="transparent">
-                <IconDevicesPlus width={30} height={30} />
-              </ActionIcon>
-              <Title className="boxContent_title">Email</Title>
-              <Text className="sub-title">vankiet.kn78@gmail.com</Text>
-              <Text className="sub-title">Write me</Text>
-            </Box>
-            <Box className="boxContent">
-              <ActionIcon size={30} variant="transparent">
-                <IconCertificate width={30} height={30} />
-              </ActionIcon>
-              <Title className="boxContent_title">Completed</Title>
-              <Text className="sub-title">18 + Projects</Text>
-            </Box>
-            <Box className="boxContent">
-              <ActionIcon size={30} variant="transparent">
-                <IconHeadset width={30} height={30} />
-              </ActionIcon>
-              <Title className="boxContent_title">Support</Title>
-              <Text className="sub-title">Online 24/7</Text>
-            </Box>
+      <SimpleGrid
+        cols={2}
+        spacing={100}
+        w="100%"
+        breakpoints={[{ maxWidth: '992', cols: 1, spacing: 50 }]}
+      >
+        <Box pos="relative">
+          <Box className="earthCanvasWrapper">
+            <EarthCanvas />
           </Box>
         </Box>
         <Box className="fromInput">
@@ -99,7 +78,7 @@ export default function ContactMe() {
             Contact Me
           </Button>
         </Box>
-      </Group>
+      </SimpleGrid>
     </Box>
   )
 }
