@@ -26,8 +26,6 @@ import AboutMe from './AboutMe'
 import Timeline from './Timeline'
 import ContactMe from './ContactMe'
 import Testimonials from './Testimonials'
-import StarsCanvas from '../canvas/Stars'
-import { EarthCanvas } from '../canvas'
 
 export default function Home() {
   const { classes } = useStyles()
@@ -119,17 +117,6 @@ export default function Home() {
         <Timeline />
         <Testimonials />
         <ContactMe />
-        <Box
-          style={{
-            position: 'relative',
-            zIndex: 0,
-            height: '100vh',
-            padding: 50,
-          }}
-        >
-          <EarthCanvas />
-          <StarsCanvas />
-        </Box>
       </Container>
     </Layout>
   )

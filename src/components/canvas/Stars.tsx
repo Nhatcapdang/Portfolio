@@ -1,23 +1,32 @@
 import { useState, useRef, Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Points, PointMaterial, Preload } from '@react-three/drei'
+import { Points as Pointsd, PointMaterial, Preload } from '@react-three/drei'
 import { inSphere } from 'maath/random'
-import { useStyles } from './styles'
+import { BufferGeometry, NormalBufferAttributes, Points } from 'three'
 
-const Stars = props => {
-  const ref = useRef()
+const Stars = () => {
+  const ref = useRef<Points<BufferGeometry<NormalBufferAttributes>> | null>(
+    null
+  )
   const [sphere] = useState(() =>
     inSphere(new Float32Array(5001), { radius: 1.2 })
   )
 
   useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 10
-    ref.current.rotation.y -= delta / 15
+    if (ref.current) {
+      ref.current.rotation.x -= delta / 100
+      ref.current.rotation.y -= delta / 100
+    }
   })
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={sphere} stride={3} frustumCulled {...props}>
+      <Pointsd
+        ref={ref}
+        positions={sphere as Float32Array}
+        stride={3}
+        frustumCulled
+      >
         <PointMaterial
           transparent
           color="#f272c8"
@@ -25,32 +34,29 @@ const Stars = props => {
           sizeAttenuation
           depthWrite={false}
         />
-      </Points>
+      </Pointsd>
     </group>
   )
 }
 
-const StarsCanvas = () => {
-  const { classe } = useStyles()
-  return (
-    <div
-      style={{
-        width: '100%',
-        height: 'auto',
-        position: 'absolute',
-        inset: 0,
-        zIndex: 1,
-      }}
-    >
-      <Canvas camera={{ position: [0, 0, 1] }}>
-        <Suspense fallback={null}>
-          <Stars />
-        </Suspense>
+const StarsCanvas = () => (
+  <div
+    style={{
+      width: '100%',
+      height: 'auto',
+      position: 'absolute',
+      inset: 0,
+      zIndex: -1,
+    }}
+  >
+    <Canvas camera={{ position: [0, 0, 1] }}>
+      <Suspense fallback={null}>
+        <Stars />
+      </Suspense>
 
-        <Preload all />
-      </Canvas>
-    </div>
-  )
-}
+      <Preload all />
+    </Canvas>
+  </div>
+)
 
 export default StarsCanvas

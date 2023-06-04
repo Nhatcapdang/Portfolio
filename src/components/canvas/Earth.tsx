@@ -1,14 +1,10 @@
 import React, { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei'
-import Scene from '../../../public/asset/svgs/scene.gltf'
 import CanvasLoader from './Loader'
 
-type GLTFResult = ReturnType<typeof useGLTF>
-
 const Earth = () => {
-  const earth = useGLTF(Scene) as GLTFResult
-
+  const earth = useGLTF('https://protfolio-woad.vercel.app/planet/scene.gltf')
   return (
     <primitive object={earth.scene} scale={2.5} position-y={0} rotation-y={0} />
   )
