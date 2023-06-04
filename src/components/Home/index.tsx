@@ -8,7 +8,7 @@ import {
   List,
   Button,
   Container,
-} from '@mantine/core';
+} from '@mantine/core'
 import {
   IconBrandFacebook,
   IconBrandInstagram,
@@ -17,18 +17,20 @@ import {
   IconMail,
   IconBrandTwitter,
   IconUserSearch,
-} from '@tabler/icons-react';
-import Image from 'next/image';
-import { Layout } from 'src/common';
-import { Ava3 } from 'public/asset/Photos';
-import { useStyles } from './styles';
-import AboutMe from './AboutMe';
-import Timeline from './Timeline';
-import ContactMe from './ContactMe';
-import Testimonials from './Testimonials';
+} from '@tabler/icons-react'
+import Image from 'next/image'
+import { Layout } from 'src/common'
+import { Ava3 } from 'public/asset/Photos'
+import { useStyles } from './styles'
+import AboutMe from './AboutMe'
+import Timeline from './Timeline'
+import ContactMe from './ContactMe'
+import Testimonials from './Testimonials'
+import StarsCanvas from '../canvas/Stars'
+import { EarthCanvas } from '../canvas'
 
 export default function Home() {
-  const { classes } = useStyles();
+  const { classes } = useStyles()
   return (
     <Layout>
       <Container fluid>
@@ -57,14 +59,19 @@ export default function Home() {
               <Title size={50}>Hi, I&rsquo;m Kiet</Title>
               <Title order={2}>Frontend developer</Title>
               <Text maw={600} align="justify">
-                Hight level experience in web design and development knowledge, producing quality
-                work. I have a lot of experience in developing web applications using ReactJS, Redux
-                HTML, CSS, JavaScript, Bootstrap, Material UI, Webpack, Babel, Git,... I am a hard
-                worker and enjoy working at all critical conditions. If hired by you, I will be
-                responsible to complete the task within the stipulated time frame and with utmost
-                confidence.
+                Hight level experience in web design and development knowledge,
+                producing quality work. I have a lot of experience in developing
+                web applications using ReactJS, Redux HTML, CSS, JavaScript,
+                Bootstrap, Material UI, Webpack, Babel, Git,... I am a hard
+                worker and enjoy working at all critical conditions. If hired by
+                you, I will be responsible to complete the task within the
+                stipulated time frame and with utmost confidence.
               </Text>
-              <Button className="btnAboutMe" variant="outline" leftIcon={<IconUserSearch />}>
+              <Button
+                className="btnAboutMe"
+                variant="outline"
+                leftIcon={<IconUserSearch />}
+              >
                 More About Me
               </Button>
             </Box>
@@ -112,7 +119,18 @@ export default function Home() {
         <Timeline />
         <Testimonials />
         <ContactMe />
+        <Box
+          style={{
+            position: 'relative',
+            zIndex: 0,
+            height: '100vh',
+            padding: 50,
+          }}
+        >
+          <EarthCanvas />
+          <StarsCanvas />
+        </Box>
       </Container>
     </Layout>
-  );
+  )
 }
