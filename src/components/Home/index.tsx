@@ -25,6 +25,7 @@ import { useStyles } from './styles';
 import AboutMe from './AboutMe';
 import Timeline from './Timeline';
 import ContactMe from './ContactMe';
+import Testimonials from './Testimonials';
 
 export default function Home() {
   const { classes } = useStyles();
@@ -109,6 +110,7 @@ export default function Home() {
         </Box>
         <AboutMe />
         <Timeline />
+        <Testimonials />
         <ContactMe />
       </Container>
     </Layout>

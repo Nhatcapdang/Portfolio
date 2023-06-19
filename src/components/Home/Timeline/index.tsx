@@ -1,7 +1,12 @@
 import { Box } from '@mantine/core';
-import { Chrono } from 'react-chrono';
+import dynamic from 'next/dynamic';
 import { useStyles } from './styles';
 import { items } from './data';
+
+const Chrono = dynamic(
+  import('react-chrono').then((mod) => mod.Chrono),
+  { ssr: false }
+);
 
 export default function Timeline() {
   const { classes } = useStyles();
