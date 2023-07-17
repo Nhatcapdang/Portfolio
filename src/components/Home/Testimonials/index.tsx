@@ -1,7 +1,38 @@
 import { Box, SimpleGrid } from '@mantine/core';
+import { Avatar2, Avatar3 } from 'public/asset/Photos';
 import Card3D from '../Card3D';
 import { useStyles } from './styles';
 
+const FAKE_DATA = [
+  {
+    photo: Avatar2,
+    qoue: 'I thought it was impossible to make a website as beautiful as our product, but Hasan proved me wrong.Hasan, made a great website for us. Thanks, Hasan.',
+    name: 'Kiet',
+    job: 'CEO',
+    avatar: Avatar2,
+  },
+  {
+    photo: Avatar3,
+    qoue: 'I thought it was impossible to make a website as beautiful as our product, but Hasan proved me wrong.Hasan, made a great website for us. Thanks, Hasan.',
+    name: 'Kiet',
+    job: 'CEO',
+    avatar: Avatar3,
+  },
+  {
+    photo: Avatar2,
+    qoue: 'I thought it was impossible to make a website as beautiful as our product, but Hasan proved me wrong.Hasan, made a great website for us. Thanks, Hasan.',
+    name: 'Kiet',
+    job: 'CEO',
+    avatar: Avatar2,
+  },
+  {
+    photo: Avatar3,
+    qoue: 'I thought it was impossible to make a website as beautiful as our product, but Hasan proved me wrong.Hasan, made a great website for us. Thanks, Hasan.',
+    name: 'Kiet',
+    job: 'CEO',
+    avatar: Avatar3,
+  },
+];
 export default function Testimonials() {
   const { classes } = useStyles();
   return (
@@ -24,18 +55,11 @@ export default function Testimonials() {
           },
         ]}
       >
-        <Box className="card3dWrapper">
-          <Card3D />
-        </Box>
-        <Box className="card3dWrapper">
-          <Card3D />
-        </Box>
-        <Box className="card3dWrapper">
-          <Card3D />
-        </Box>
-        <Box className="card3dWrapper">
-          <Card3D />
-        </Box>
+        {FAKE_DATA.map((item, index) => (
+          <Box key={index} className="card3dWrapper">
+            <Card3D {...item} />
+          </Box>
+        ))}
       </SimpleGrid>
     </Box>
   );

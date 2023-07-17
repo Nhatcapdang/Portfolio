@@ -28,9 +28,7 @@ export const useStyles = createStyles(() => ({
         marginBottom: 'var(--mb-0-75)',
       },
       '.desc': {
-        textAlign: 'justify',
         fontSize: 'var(--h3-font-size)',
-        paddingRight: '6rem',
         marginBottom: 'var(--mb-2)',
       },
       '.mantine-ActionIcon-root': {

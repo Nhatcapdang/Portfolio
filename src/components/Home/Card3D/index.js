@@ -3,8 +3,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Group, Text, Avatar, Box, Stack } from '@mantine/core';
 import Image from 'next/image';
+import { Avatar2 } from 'public/asset/Photos';
 
-const Card3D = () => {
+const Card3D = ({ avatar, photo, qoue, name, job }) => {
   const itemRef = useRef(null);
   const [first, setfirst] = useState(false);
   useEffect(() => {
@@ -104,7 +105,7 @@ const Card3D = () => {
       <span className="inner-card-backface">
         <span className="image">
           <Image
-            src="https://instagram.fsgn8-2.fna.fbcdn.net/v/t51.2885-15/288137252_721335082470336_6724268665874424577_n.jpg?stp=c0.180.1440.1440a_dst-jpg_e35_s480x480&_nc_ht=instagram.fsgn8-2.fna.fbcdn.net&_nc_cat=100&_nc_ohc=IauJaIG4eJsAX-pNf84&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfCwFIKTjLVwEn43gp89vjEe4jP2kh7ixMML5Viidqnd4Q&oe=64948693&_nc_sid=f70a57"
+            src={photo}
             alt="blastoise"
             fill="blur"
             style={{
@@ -120,27 +121,18 @@ const Card3D = () => {
           <Text size={48} weight={900}>
             "
           </Text>
-          <Text size={18}>
-            I thought it was impossible to make a website as beautiful as our product, but Hasan
-            proved me wrong.Hasan, made a great website for us. Thanks, Hasan.
-          </Text>
+          <Text size={18}>{qoue}</Text>
           <Group position="apart">
             <Box>
               <Text size={16} weight={500}>
                 <Text component="span" color="hsl(342, 92%, 46%)">
                   @{' '}
                 </Text>
-                Nhat Cap Dang
+                {name}
               </Text>
-              <Text size={12}>CFO of Me</Text>
+              <Text size={12}>{job}</Text>
             </Box>
-            <Avatar
-              href="https://instagram.fsgn13-3.fna.fbcdn.net/v/t39.30808-6/344577723_1216481862389666_3909614869372940114_n.jpg?stp=c0.256.1536.1536a_dst-jpg_e15_s480x480&_nc_ht=instagram.fsgn13-3.fna.fbcdn.net&_nc_cat=102&_nc_ohc=o3-CLAa-53IAX8qUtEy&edm=AOQ1c0wAAAAA&ccb=7-5&oh=00_AfDk2irzvW-D279gfD6UIgpEkLSLCmbUXeJtgjvmch_YzQ&oe=64945711&_nc_sid=f70a57"
-              src="https://instagram.fsgn13-3.fna.fbcdn.net/v/t39.30808-6/344577723_1216481862389666_3909614869372940114_n.jpg?stp=c0.256.1536.1536a_dst-jpg_e15_s480x480&_nc_ht=instagram.fsgn13-3.fna.fbcdn.net&_nc_cat=102&_nc_ohc=o3-CLAa-53IAX8qUtEy&edm=AOQ1c0wAAAAA&ccb=7-5&oh=00_AfDk2irzvW-D279gfD6UIgpEkLSLCmbUXeJtgjvmch_YzQ&oe=64945711&_nc_sid=f70a57"
-              alt="it's me"
-              size={50}
-              radius="100%"
-            />
+            <Avatar href={avatar.src} src={avatar.src} alt="it's me" size={50} radius="100%" />
           </Group>
         </Stack>
       </span>
