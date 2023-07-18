@@ -1,6 +1,27 @@
-import { createStyles } from '@mantine/core';
+import { createStyles } from '@mantine/core'
 
 export const useStyles = createStyles(() => ({
+  bothMndatory: {
+    // scrollSnapType: 'both mandatory',
+    // height: '100vh',
+    // overflowY: 'scroll',
+    marginRight: '-16px',
+    // scroolBehavior: 'smooth',
+    // scrollPaddingTop: '15vh',
+    // transition: 'all 5s ease-in-out',
+    scrollSnapType: 'both mandatory',
+    display: 'grid',
+    gridAutoRows: '100%',
+    height: '100vh',
+    overflowY: 'scroll',
+
+    '>div': {
+      scrollSnapMargin: '50px',
+      scrollSnapAlign: 'start',
+      scrollSnapStop: 'always',
+      // scrollbarWidth: 'thin',
+    },
+  },
   homeWrapper: {
     position: 'relative',
     height: '100vh',
@@ -74,4 +95,4 @@ export const useStyles = createStyles(() => ({
       },
     },
   },
-}));
+}))
