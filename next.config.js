@@ -1,7 +1,7 @@
-const path = require('path');
+const path = require('path')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
-});
+})
 const withPlugins = require('next-compose-plugins')
 const withTM = require('next-transpile-modules')(['@react-three/drei'])
 module.exports = withPlugins([withBundleAnalyzer, withTM], {

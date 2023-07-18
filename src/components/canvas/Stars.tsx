@@ -9,7 +9,7 @@ const Stars = () => {
     null
   )
   const [sphere] = useState(() =>
-    inSphere(new Float32Array(5001), { radius: 1.2 })
+    inSphere(new Float32Array(5001), { radius: 1.5 })
   )
 
   useFrame((state, delta) => {
