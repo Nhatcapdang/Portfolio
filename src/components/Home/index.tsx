@@ -56,7 +56,7 @@ export default function Home() {
             <Box className="introdution">
               <Title size={50}>Hi, I&rsquo;m Kiet</Title>
               <Title order={2}>Frontend developer</Title>
-              <Text maw={600} align="justify">
+              <Text maw={600}>
                 Hight level experience in web design and development knowledge,
                 producing quality work. I have a lot of experience in developing
                 web applications using ReactJS, Redux HTML, CSS, JavaScript,

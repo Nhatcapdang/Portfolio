@@ -1,4 +1,4 @@
-import { Box, Title, Text, ActionIcon, Button, Group } from '@mantine/core';
+import { Box, Title, Text, ActionIcon, Button, SimpleGrid } from '@mantine/core';
 import { IconDevicesPlus, IconCertificate, IconHeadset } from '@tabler/icons-react';
 import Image from 'next/image';
 import { Ava } from 'public/asset/Photos';
@@ -12,7 +12,16 @@ export default function AboutMe() {
         <Title data-heading="My Intro" className="title">
           About Me
         </Title>
-        <Group grow spacing={100}>
+        <SimpleGrid
+          spacing={100}
+          cols={2}
+          breakpoints={[
+            {
+              maxWidth: 1140,
+              cols: 1,
+            },
+          ]}
+        >
           <Box className="avatar">
             <Image src={Ava} alt="avatar" />
           </Box>
@@ -51,7 +60,7 @@ export default function AboutMe() {
               Contact Me
             </Button>
           </Box>
-        </Group>
+        </SimpleGrid>
       </Box>
     </Box>
   );

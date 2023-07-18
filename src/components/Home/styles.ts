@@ -65,5 +65,13 @@ export const useStyles = createStyles(() => ({
       bottom: 0,
       right: 0,
     },
+    '@media (max-width: 992px)': {
+      '.mantine-Stack-root': {
+        height: '100%',
+        '.mantine-List-root': {
+          display: 'unset',
+        },
+      },
+    },
   },
 }));
