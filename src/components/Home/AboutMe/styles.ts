@@ -1,4 +1,4 @@
-import { createStyles } from '@mantine/core';
+import { createStyles } from '@mantine/core'
 
 export const useStyles = createStyles(() => ({
   aboutMeWrapper: {
@@ -8,7 +8,7 @@ export const useStyles = createStyles(() => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    background: '#131313',
+    // background: '#131313',
     '.title': {
       textAlign: 'center',
       marginBottom: 60,
@@ -80,4 +80,4 @@ export const useStyles = createStyles(() => ({
       },
     },
   },
-}));
+}))
