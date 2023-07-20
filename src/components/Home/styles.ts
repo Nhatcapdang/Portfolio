@@ -78,13 +78,29 @@ export const useStyles = createStyles(() => ({
         },
       },
     },
-    '.avatar': {
-      zIndex: -1,
+    '.owen': {
       position: 'absolute',
       content: '""',
-      maxWidth: '800px',
-      bottom: 0,
+      top: 0,
       right: 0,
+      width: '100%',
+      height: '100%',
+      zIndex: -1,
+      '.owen2': {
+        position: 'relative',
+        width: '100%',
+        height: '100%',
+        top: 0,
+        left: 0,
+      },
+      '.avatar': {
+        zIndex: 0,
+        position: 'absolute',
+        content: '""',
+        maxWidth: '800px',
+        bottom: 0,
+        right: 0,
+      },
     },
     '@media (max-width: 992px)': {
       '.mantine-Stack-root': {
