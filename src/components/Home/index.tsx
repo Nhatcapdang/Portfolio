@@ -57,6 +57,7 @@ export default function Home() {
                 </List.Item>
               </List>
               <Box className="introdution">
+                <Title size={50}>WEBSITE IN DEVELOPING</Title>
                 <Title size={50}>Hi, I&rsquo;m Kiet</Title>
                 <Title order={2}>Frontend developer</Title>
                 <Text maw={600}>
