@@ -1,4 +1,4 @@
-import { createStyles } from '@mantine/core';
+import { createStyles } from '@mantine/core'
 
 export const useStyles = createStyles(() => ({
   headerWrapper: {
@@ -8,30 +8,47 @@ export const useStyles = createStyles(() => ({
     height: '100vh',
     backgroundColor: 'var(--body-color)',
     borderRight: '1px solid var(--box-color)',
-    '.mantine-List-root': {
+    '.mantine-SegmentedControl-root ': {
       display: 'flex',
+      padding: '0px',
       transform: 'rotate(-90deg)',
       // transformOrigin: 'top left',
       flexDirection: 'row-reverse',
-      '.mantine-List-item': {
-        '.mantine-NavLink-root': {
-          lineHeight: '100px',
-          color: 'var(--text-color)',
-          fontWeight: 700,
-          padding: '1rem',
-          transition: 'all 0.4s ease',
-          '&:hover': {
-            color: 'var(--skin-color)',
-          },
-          '&[data-active]': {
-            color: 'var(--skin-color)',
-            background: 'unset',
-          },
-          '.mantine-NavLink-label': {
-            fontSize: '1rem',
-          },
+      background: 'unset',
+      '.mantine-SegmentedControl-control': {
+        border: 'unset',
+      },
+      '.mantine-SegmentedControl-indicator': {
+        backgroundColor: 'var(--skin-color)',
+        inset: '0px',
+      },
+      '.mantine-SegmentedControl-label': {
+        // border: 'unset',
+        padding: '1rem',
+        fontWeight: 700,
+        '&[data-active]': {
+          // color: 'var(--skin-color)',
         },
       },
+      // '.mantine-SegmentedControl-control': {
+      //   '.mantine-NavLink-root': {
+      //     lineHeight: '100px',
+      //     color: 'var(--text-color)',
+      //     fontWeight: 700,
+      //     padding: '1rem',
+      //     transition: 'all 0.4s ease',
+      //     '&:hover': {
+      //       color: 'var(--skin-color)',
+      //     },
+      //     '&[data-active]': {
+      //       color: 'var(--skin-color)',
+      //       background: 'unset',
+      //     },
+      //     '.mantine-NavLink-label': {
+      //       fontSize: '1rem',
+      //     },
+      //   },
+      // },
     },
     '.logo': {
       fontWeight: 700,
@@ -55,4 +72,4 @@ export const useStyles = createStyles(() => ({
       alignItems: 'center',
     },
   },
-}));
+}))

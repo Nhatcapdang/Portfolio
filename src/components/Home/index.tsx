@@ -21,9 +21,11 @@ import {
 import Image from 'next/image'
 import { Layout } from 'src/common'
 import { Ava3 } from 'public/asset/Photos'
+import { MeshDistortMaterial, OrbitControls, Sphere } from '@react-three/drei'
+import { Canvas } from '@react-three/fiber'
 import { useStyles } from './styles'
 import AboutMe from './AboutMe'
-import Timeline from './Timeline'
+// import Timeline from './Timeline'
 import ContactMe from './ContactMe'
 import Testimonials from './Testimonials'
 
@@ -55,6 +57,7 @@ export default function Home() {
                 </List.Item>
               </List>
               <Box className="introdution">
+                <Title size={50}>WEBSITE IN DEVELOPING</Title>
                 <Title size={50}>Hi, I&rsquo;m Kiet</Title>
                 <Title order={2}>Frontend developer</Title>
                 <Text maw={600}>
@@ -110,12 +113,31 @@ export default function Home() {
                 </List.Item>
               </List>
             </Stack>
-            <Box className="avatar">
-              <Image src={Ava3} alt="avatar" />
+            <Box className="owen">
+              <Box className="owen2">
+                <Canvas camera={{ fov: 25, position: [5, 5, 5] }}>
+                  <OrbitControls autoRotate enableZoom={false} />
+                  {/* edges  */}
+                  <ambientLight intensity={1} />
+                  {/* directionalLight  = meshStandardMaterial */}
+                  <directionalLight position={[3, 2, 1]} />
+                  <Sphere args={[1, 100, 200]} scale={1.3}>
+                    <MeshDistortMaterial
+                      color="#220736"
+                      attach="material"
+                      distort={0.5}
+                      speed={2}
+                    />
+                  </Sphere>
+                </Canvas>
+                <Box className="avatar">
+                  <Image src={Ava3} alt="avatar" />
+                </Box>
+              </Box>
             </Box>
           </Box>
           <AboutMe />
-          <Timeline />
+          {/* <Timeline /> */}
           <Testimonials />
           <ContactMe />
         </Box>
