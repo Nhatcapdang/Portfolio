@@ -6,6 +6,7 @@ export const useStyles = createStyles(() => ({
     // height: '100vh',
     // overflowY: 'scroll',
     marginRight: '-16px',
+    paddingRight: '32px',
     // scroolBehavior: 'smooth',
     // scrollPaddingTop: '15vh',
     // transition: 'all 5s ease-in-out',
@@ -106,7 +107,7 @@ export const useStyles = createStyles(() => ({
       '.mantine-Stack-root': {
         height: '100%',
         '.mantine-List-root': {
-          display: 'unset',
+          // display: 'unset',
         },
       },
     },
