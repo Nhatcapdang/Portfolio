@@ -107,7 +107,10 @@ export const useStyles = createStyles(() => ({
       '.mantine-Stack-root': {
         height: '100%',
         '.mantine-List-root': {
-          // display: 'unset',
+          '&.listSocial': {},
+          '&.listPersional': {
+            display: 'unset',
+          },
         },
       },
     },

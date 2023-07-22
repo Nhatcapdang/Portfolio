@@ -1,13 +1,18 @@
-import { Box, Title, Text, ActionIcon, Button, SimpleGrid } from '@mantine/core';
-import { IconDevicesPlus, IconCertificate, IconHeadset } from '@tabler/icons-react';
-import Image from 'next/image';
-import { Ava } from 'public/asset/Photos';
-import { useStyles } from './styles';
+import { Box, Title, Text, ActionIcon, Button, SimpleGrid } from '@mantine/core'
+import {
+  IconDevicesPlus,
+  IconCertificate,
+  IconHeadset,
+} from '@tabler/icons-react'
+import Image from 'next/image'
+import { Ava } from 'public/asset/Photos'
+import { LINK_ID } from 'src/common/Header'
+import { useStyles } from './styles'
 
 export default function AboutMe() {
-  const { classes } = useStyles();
+  const { classes } = useStyles()
   return (
-    <Box className={classes.aboutMeWrapper}>
+    <Box id={LINK_ID.about} className={classes.aboutMeWrapper}>
       <Box>
         <Title data-heading="My Intro" className="title">
           About Me
@@ -26,11 +31,14 @@ export default function AboutMe() {
             <Image src={Ava} alt="avatar" />
           </Box>
           <Box className="about">
-            <Text className="heading">Hi, I&rsquo;m Kiet Nguyen, in HCM City </Text>
+            <Text className="heading">
+              Hi, I&rsquo;m Kiet Nguyen, in HCM City{' '}
+            </Text>
             <Text className="desc">
-              web developer, with hight level experience in web design and development knowledge,
-              producing quality work. I have a lot of experience in developing web applications
-              using ReactJS, Redux HTML, CSS, JavaScript, Bootstrap, Material UI, Webpack, Babel,
+              web developer, with hight level experience in web design and
+              development knowledge, producing quality work. I have a lot of
+              experience in developing web applications using ReactJS, Redux
+              HTML, CSS, JavaScript, Bootstrap, Material UI, Webpack, Babel,
               Git,... I
             </Text>
             <Box className="about_description">
@@ -56,12 +64,16 @@ export default function AboutMe() {
                 <Text className="sub-title">Online 24/7</Text>
               </Box>
             </Box>
-            <Button className="btnAboutMe" variant="outline" leftIcon={<IconDevicesPlus />}>
+            <Button
+              className="btnAboutMe"
+              variant="outline"
+              leftIcon={<IconDevicesPlus />}
+            >
               Contact Me
             </Button>
           </Box>
         </SimpleGrid>
       </Box>
     </Box>
-  );
+  )
 }

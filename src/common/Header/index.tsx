@@ -1,14 +1,35 @@
-import { ActionIcon, Box, Stack, Button, SegmentedControl } from '@mantine/core'
+import {
+  ActionIcon,
+  Box,
+  Stack,
+  Button,
+  SegmentedControl,
+  SegmentedControlItem,
+} from '@mantine/core'
 import { IconUserShare } from '@tabler/icons-react'
 import { useStyles } from './styles'
 
-const HEADERS = [
-  { label: 'Home', value: 'Home' },
-  { label: 'About', value: 'About' },
-  { label: 'Services', value: 'Services' },
-  { label: 'Work', value: 'Work' },
-  { label: 'Skills', value: 'Skills' },
-  { label: 'Contact', value: 'Contact' },
+export const LINK_ID = {
+  home: 'Home',
+  about: 'About',
+  services: 'Services',
+  work: 'Work',
+  skills: 'Skills',
+  contact: 'Contact',
+}
+const HEADERS: SegmentedControlItem[] = [
+  {
+    label: 'Home',
+    value: LINK_ID.home,
+  },
+  {
+    label: 'About',
+    value: LINK_ID.about,
+  },
+  { label: 'Services', value: LINK_ID.services, disabled: true },
+  { label: 'Work', value: LINK_ID.work, disabled: true },
+  { label: 'Skills', value: LINK_ID.skills, disabled: true },
+  { label: 'Contact', value: LINK_ID.contact },
 ]
 export default function Header() {
   const { classes } = useStyles()
@@ -22,6 +43,12 @@ export default function Header() {
           size="1rem"
           // radius={10}
           data={HEADERS}
+          onChange={value => {
+            const element = document.getElementById(value)
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' })
+            }
+          }}
           transitionDuration={500}
           transitionTimingFunction="linear"
         />

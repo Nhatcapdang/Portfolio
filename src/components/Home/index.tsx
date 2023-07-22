@@ -23,6 +23,7 @@ import { Layout } from 'src/common'
 import { Ava3 } from 'public/asset/Photos'
 import { MeshDistortMaterial, OrbitControls, Sphere } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
+import { LINK_ID } from 'src/common/Header'
 import { useStyles } from './styles'
 import AboutMe from './AboutMe'
 // import Timeline from './Timeline'
@@ -35,8 +36,8 @@ export default function Home() {
     <Layout>
       <Container fluid>
         <Box className={classes.bothMndatory}>
-          <Box className={classes.homeWrapper}>
-            <Stack justify="space-between">
+          <Box id={LINK_ID.home} className={classes.homeWrapper}>
+            <Stack id="aaa" justify="space-between">
               <List className="listSocial">
                 <List.Item>Follow me</List.Item>
                 <List.Item> - </List.Item>

@@ -29,6 +29,9 @@ export const useStyles = createStyles(() => ({
         '&[data-active]': {
           // color: 'var(--skin-color)',
         },
+        a: {
+          display: 'block',
+        },
       },
       // '.mantine-SegmentedControl-control': {
       //   '.mantine-NavLink-root': {

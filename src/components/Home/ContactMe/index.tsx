@@ -11,6 +11,7 @@ import EarthCanvas from 'src/components/canvas/Earth'
 import { TransformedValues, hasLength, isEmail, useForm } from '@mantine/form'
 import emailjs from '@emailjs/browser'
 import { useRef, useState } from 'react'
+import { LINK_ID } from 'src/common/Header'
 import { useStyles } from './styles'
 
 export default function ContactMe() {
@@ -57,7 +58,7 @@ export default function ContactMe() {
       })
   }
   return (
-    <Box className={classes.contactMeWrapper}>
+    <Box id={LINK_ID.contact} className={classes.contactMeWrapper}>
       <Title data-heading="Get in touch" className="title">
         Contact me
       </Title>

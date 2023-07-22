@@ -40,6 +40,7 @@ export const useStyles = createStyles(() => ({
       '.about_description': {
         display: 'flex',
         gap: 10,
+        flexWrap: 'wrap',
         marginBottom: 'var(--mb-2)',
         '.boxContent': {
           display: 'flex',
