@@ -1,8 +1,9 @@
-import '@mantine/core/styles.css';
-import type { AppProps } from 'next/app';
-import Head from 'next/head';
-import { MantineProvider } from '@mantine/core';
-import { theme } from '../theme';
+import '@mantine/core/styles.css'
+import type { AppProps } from 'next/app'
+import Head from 'next/head'
+import { MantineProvider } from '@mantine/core'
+import { theme } from '../theme'
+import { binanceusdm } from 'ccxt'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -17,5 +18,17 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <Component {...pageProps} />
     </MantineProvider>
-  );
+  )
 }
+
+export const binance = new binanceusdm({
+  // options: { defaultType: 'future' },
+  // apiKey: 'xWe6TpSXPy5yZLYnDzG71lLDhPCqWafWQS0mL1k6ls79qJzaJpUEGsMJuf59RBSe',
+  // secret: 'oWvRMOFTIgo1npEEI74kzx8kLBZI28DYoSgCv2zDZgbaB4f2z3FlqnjAuNKSTYAJ',
+  apiKey: process.env.NEXT_PUBLIC_API_KEY,
+  secret: process.env.NEXT_PUBLIC_API_SECRET,
+  urls: { www: 'https://fapi.binance.com' },
+  // userAgent: 'ccxt/192.168.80.35',
+  verbose: true,
+  // uid: 'binance',
+})
