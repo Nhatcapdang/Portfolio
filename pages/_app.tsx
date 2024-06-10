@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { MantineProvider } from '@mantine/core'
 import { theme } from '../theme'
 import { binanceusdm } from 'ccxt'
+import StoreProvider from './StoreProvider'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -16,7 +17,9 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <link rel="shortcut icon" href="/favicon.svg" />
       </Head>
-      <Component {...pageProps} />
+      <StoreProvider>
+        <Component {...pageProps} />
+      </StoreProvider>
     </MantineProvider>
   )
 }
