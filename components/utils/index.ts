@@ -3,6 +3,7 @@ import { Int } from 'ccxt/js/src/base/types'
 import { formatNumber } from '../common'
 import { TimeFrame } from '../constant/enum'
 import { binance } from '@/pages/_app'
+import { Macd } from '@/lib/reducer/rsi'
 
 export type Iohlcv = {
   open: number
@@ -168,4 +169,90 @@ export async function fetchOHLCV2(
       percentage: formatNumber((change / open) * 100),
     }
   })
+}
+
+function calculateSlope(histogram: any[]) {
+  return histogram[histogram.length - 1] - histogram[histogram.length - 2]
+}
+
+/** max length 474 */
+export const checkMACDCrosses = (data: Macd[] = []) => {
+  let crosses = []
+  for (let i = 1; i < data.length; i++) {
+    const prev = data[i - 1]
+    const curr = data[i]
+    if (prev.MACD < prev.signal && curr.MACD > curr.signal) {
+      crosses.push({ index: i, MACD: curr.MACD, signal: curr.signal })
+    }
+  }
+  return crosses
+}
+
+export const checkMACD = (data: Macd[] = []) => {
+  const checkHistogramSlope = () => {
+    for (let i = 1; i < data.length; i++) {
+      const slope = calculateSlope([data[i - 1].histogram, data[i].histogram])
+      console.log(`Histogram slope at index ${i}: ${slope}`)
+    }
+  }
+  /** max length 474 */
+  const checkMACDCrosses = (data: Macd[] = []) => {
+    let crosses = []
+    for (let i = 1; i < data.length; i++) {
+      const prev = data[i - 1]
+      const curr = data[i]
+      if (prev.MACD < prev.signal && curr.MACD > curr.signal) {
+        crosses.push({ index: i, MACD: curr.MACD, signal: curr.signal })
+      }
+    }
+    return crosses
+  }
+
+  const checkZeroLineCrossovers = () => {
+    for (let i = 1; i < data.length; i++) {
+      const prev = data[i - 1]
+      const current = data[i]
+
+      if (prev.MACD < 0 && current.MACD > 0) {
+        console.log(`MACD crossed above zero at index ${i}`)
+      } else if (prev.MACD > 0 && current.MACD < 0) {
+        console.log(`MACD crossed below zero at index ${i}`)
+      }
+    }
+  }
+
+  const checkZeroLinePullbacks = () => {
+    for (let i = 1; i < data.length; i++) {
+      const prev = data[i - 1]
+      const current = data[i]
+
+      if (prev.MACD > 0 && current.MACD < prev.MACD) {
+        console.log(`MACD pullback from above zero at index ${i}`)
+      } else if (prev.MACD < 0 && current.MACD > prev.MACD) {
+        console.log(`MACD pullback from below zero at index ${i}`)
+      }
+    }
+  }
+  return {
+    checkHistogramSlope,
+    checkMACDCrosses,
+    checkZeroLineCrossovers,
+    checkZeroLinePullbacks,
+  }
+}
+
+export const getLength = ({
+  close = [],
+  bb = [],
+  macd = [],
+}: {
+  close?: any[]
+  bb?: any[]
+  macd?: any[]
+}) => {
+  return {
+    closeLength: close.length,
+    bbLength: macd.length - bb.length,
+    macdLength: close.length - macd.length,
+  }
 }

@@ -35,25 +35,9 @@ export const pokemonApi = createApi({
       },
       // highlight-end
     }),
-    getUser: builder.query<any, { symbol: string; timeframe: TimeFrame }>({
-      queryFn: async params => {
-        try {
-          const res = await calculateRSI3(params)
-          // Return the result in an object with a `data` field
-          return { data: res }
-        } catch (error) {
-          // Catch any errors and return them as an object with an `error` field
-          return { error } as {
-            error?: undefined
-            data: any
-            meta?: FetchBaseQueryMeta | undefined
-          }
-        }
-      },
-    }),
   }),
 })
 
 // Export hooks for usage in function components, which are
 // auto-generated based on the defined endpoints
-export const { useGetPokemonByNameQuery, useGetUserQuery } = pokemonApi
+export const { useGetPokemonByNameQuery } = pokemonApi
