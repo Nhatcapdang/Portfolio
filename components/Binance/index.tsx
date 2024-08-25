@@ -7,6 +7,7 @@ import { useGetPokemonByNameQuery } from '@/lib/createAPI'
 import {
   Macd,
   useGetBBQuery,
+  useGetMACDCrossBBQuery,
   useGetMACDQuery,
   useGetOHLCVQuery,
   useGetRsiQuery,
@@ -14,25 +15,22 @@ import {
 
 const c = checkMACD()
 export default function Binance() {
-  const x = useGetRsiQuery({ symbol: 'BTCUSDT', timeframe: TimeFrame['4h'] })
-  const y = useGetMACDQuery({ symbol: 'BTCUSDT', timeframe: TimeFrame['4h'] })
-  const z = useGetBBQuery({ symbol: 'BTCUSDT', timeframe: TimeFrame['4h'] })
-  const k = useGetOHLCVQuery({ symbol: 'BTCUSDT', timeframe: TimeFrame['4h'] })
-
-  const { bbLength, macdLength } = getLength({
-    close: k.data?.close,
-    bb: z.data,
-    macd: y.data,
+  const x = useGetRsiQuery({ symbol: 'ETHUSDT', timeframe: TimeFrame['4h'] })
+  const y = useGetMACDQuery({ symbol: 'ETHUSDT', timeframe: TimeFrame['4h'] })
+  const z = useGetBBQuery({ symbol: 'ETHUSDT', timeframe: TimeFrame['4h'] })
+  const k = useGetOHLCVQuery({ symbol: 'ETHUSDT', timeframe: TimeFrame['4h'] })
+  const {
+    data = [],
+    error,
+    isLoading,
+  } = useGetMACDCrossBBQuery({
+    symbol: 'ETHUSDT',
+    timeframe: TimeFrame['4h'],
   })
-  const MACDCrosses = checkMACDCrosses(y.data)
-  const g = MACDCrosses.map(item => {
-    return {
-      ...item,
-      close: k.data?.close[item.index + macdLength],
-      bb: z.data?.[item.index - bbLength],
-    }
+  const hh = data.filter(item => {
+    console.log('item.close < item.bb.lower', item.close, item.bb?.lower)
+    return item.close < item.bb?.middle
   })
-  console.log('11111', y.data, z.data, k.data?.close, MACDCrosses, g)
-
+  console.log('data', hh)
   return <div>new</div>
 }
