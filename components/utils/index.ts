@@ -182,7 +182,11 @@ export const checkMACDCrosses = (data: Macd[] = []) => {
     const prev = data[i - 1]
     const curr = data[i]
     if (prev.MACD < prev.signal && curr.MACD > curr.signal) {
-      crosses.push({ index: i, MACD: curr.MACD, signal: curr.signal })
+      crosses.push({
+        index: i,
+        MACD: curr.MACD as number,
+        signal: curr.signal as number,
+      })
     }
   }
   return crosses

@@ -12,25 +12,14 @@ import {
   useGetOHLCVQuery,
   useGetRsiQuery,
 } from '@/lib/reducer/rsi'
+import { binance } from '@/pages/_app'
 
-const c = checkMACD()
-export default function Binance() {
-  const x = useGetRsiQuery({ symbol: 'ETHUSDT', timeframe: TimeFrame['4h'] })
-  const y = useGetMACDQuery({ symbol: 'ETHUSDT', timeframe: TimeFrame['4h'] })
-  const z = useGetBBQuery({ symbol: 'ETHUSDT', timeframe: TimeFrame['4h'] })
-  const k = useGetOHLCVQuery({ symbol: 'ETHUSDT', timeframe: TimeFrame['4h'] })
-  const {
-    data = [],
-    error,
-    isLoading,
-  } = useGetMACDCrossBBQuery({
-    symbol: 'ETHUSDT',
+function Binance() {
+  // const x = await binance.fetchTickers()
+  const { data, error, isLoading } = useGetMACDCrossBBQuery({
     timeframe: TimeFrame['4h'],
   })
-  const hh = data.filter(item => {
-    console.log('item.close < item.bb.lower', item.close, item.bb?.lower)
-    return item.close < item.bb?.middle
-  })
-  console.log('data', hh)
-  return <div>new</div>
+  console.log('datadata', data)
+  return <div>new{isLoading}</div>
 }
+export default Binance
