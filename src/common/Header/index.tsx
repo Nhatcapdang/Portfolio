@@ -1,3 +1,5 @@
+/** @format */
+
 import {
   ActionIcon,
   Box,
@@ -5,9 +7,10 @@ import {
   Button,
   SegmentedControl,
   SegmentedControlItem,
-} from '@mantine/core'
-import { IconUserShare } from '@tabler/icons-react'
-import { useStyles } from './styles'
+} from '@mantine/core';
+import { IconBrandThreejs } from '@tabler/icons-react';
+import Link from 'next/link';
+import { useStyles } from './styles';
 
 export const LINK_ID = {
   home: 'Home',
@@ -16,7 +19,7 @@ export const LINK_ID = {
   work: 'Work',
   skills: 'Skills',
   contact: 'Contact',
-}
+};
 const HEADERS: SegmentedControlItem[] = [
   {
     label: 'Home',
@@ -30,9 +33,9 @@ const HEADERS: SegmentedControlItem[] = [
   { label: 'Work', value: LINK_ID.work, disabled: true },
   { label: 'Skills', value: LINK_ID.skills, disabled: true },
   { label: 'Contact', value: LINK_ID.contact },
-]
+];
 export default function Header() {
-  const { classes } = useStyles()
+  const { classes } = useStyles();
   return (
     <Box className={classes.headerWrapper}>
       <Stack h="100vh" align="center" justify="space-between">
@@ -43,10 +46,10 @@ export default function Header() {
           size="1rem"
           // radius={10}
           data={HEADERS}
-          onChange={value => {
-            const element = document.getElementById(value)
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth' })
+          onChange={( value ) => {
+            const element = document.getElementById( value );
+            if ( element ) {
+              element.scrollIntoView( { behavior: 'smooth' } );
             }
           }}
           transitionDuration={500}
@@ -64,11 +67,13 @@ export default function Header() {
           ))}
         </List> */}
         <Box className="iconShare">
-          <ActionIcon size={35} variant="transparent">
-            <IconUserShare width={35} height={35} />
-          </ActionIcon>
+          <Link href="/demo" passHref>
+            <ActionIcon size={35} variant="transparent">
+              <IconBrandThreejs width={35} height={35} />
+            </ActionIcon>
+          </Link>
         </Box>
       </Stack>
     </Box>
-  )
+  );
 }
