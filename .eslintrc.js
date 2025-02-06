@@ -18,5 +18,6 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/semi': 'off',
+    'space-in-parens': ['error', 'never'],
   },
 }
